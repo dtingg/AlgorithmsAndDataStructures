@@ -144,7 +144,7 @@ print("Is D in the list?: {}".format(ll.search("D")))
 # Test - change value at a specific location
 print("Change the value at index 2 to D.")
 ll.change("D", 2)
-print(ll)
+print("New linked list contains: {}".format(ll))
 
 # Test - add item at the end of list
 print("Add the letter E.")

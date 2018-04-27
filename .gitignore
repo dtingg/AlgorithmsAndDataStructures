@@ -100,5 +100,11 @@ ENV/
 # mypy
 .mypy_cache/
 
+# desktop
+desktop.ini
+
+# idea
+.idea/
+
 # test
 test.py

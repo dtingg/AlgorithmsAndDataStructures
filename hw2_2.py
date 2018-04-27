@@ -20,7 +20,6 @@ class Node:
         else:
             return self.data + str(self.next)
 
-
 # Create a linked list
 class LinkedList:
     def __init__(self, head):
@@ -38,7 +37,7 @@ class LinkedList:
             return current_node.data
 
         except AttributeError:
-            return print("Error. Index number out of range.")
+            return print("Error. Index number not in range.")
 
     # Search for some value
     def search(self, needle):
@@ -62,7 +61,7 @@ class LinkedList:
             return self.head
 
         except AttributeError:
-            return print("Error. Index number out of range.")
+            return print("Error. Index number not in range.")
 
     # Add value at end of list
     def add_to_end(self, new_node):
@@ -90,9 +89,8 @@ class LinkedList:
                 new_pointer = current_node.next
                 current_node.next = new_node
                 new_node.next = new_pointer
-            except AttributeError:
-                return print("Error. Index number out of range.")
-
+            except (AttributeError, TypeError):
+                return print("Error. Index number not in range.")
         return self.head
 
     # Delete value anywhere in list
@@ -111,8 +109,8 @@ class LinkedList:
 
             current_node.next = current_node.next.next
             return self.head
-        except AttributeError:
-            return print("Error. Index number out of range.")
+        except (AttributeError, TypeError):
+            return print("Error. Index number not in range.")
 
     # Format list as a string
     def __str__(self):
@@ -125,36 +123,35 @@ class LinkedList:
         llstring += "END"
         return llstring
 
-
 # Test - create nodes and a linked list
 node_a = Node("A")
 node_a.next = Node("B")
 node_a.next.next = Node("C")
 ll = LinkedList(node_a)
 print("Linked list contains: {}".format(ll))
-print(type(ll))
+print("Type: {} \n".format(type(ll)))
 
 # Test - get a value at a specific index
-print("Item at position 1 is: {}".format(ll.get(1)))
+print("Item at position 1 is: {}\n".format(ll.get(1)))
 
 # Test - search for a value
 print("Is C in the list?: {}".format(ll.search("C")))
-print("Is D in the list?: {}".format(ll.search("D")))
+print("Is D in the list?: {}\n".format(ll.search("D")))
 
 # Test - change value at a specific location
 print("Change the value at index 2 to D.")
 ll.change("D", 2)
-print("New linked list contains: {}".format(ll))
+print("New linked list contains: {}\n".format(ll))
 
 # Test - add item at the end of list
 print("Add the letter E.")
 ll.add_to_end(Node("E"))
-print("New linked list contains: {}".format(ll))
+print("New linked list contains: {}\n".format(ll))
 
 # Test - insert item at a specific location
 print("Add the letter C to index 2")
 ll.insert(Node("C"), 2)
-print("New linked list contains: {}".format(ll))
+print("New linked list contains: {}\n".format(ll))
 
 # Test - delete item at a specific location
 print("Delete the value at index 0")

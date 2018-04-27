@@ -37,7 +37,7 @@ class LinkedList:
             return current_node.data
 
         except AttributeError:
-            return print("Error. Index number not in range.")
+            return print("Error. Index not in range.")
 
     # Search for some value
     def search(self, needle):
@@ -61,7 +61,7 @@ class LinkedList:
             return self.head
 
         except AttributeError:
-            return print("Error. Index number not in range.")
+            return print("Error. Index not in range.")
 
     # Add value at end of list
     def add_to_end(self, new_node):
@@ -90,7 +90,7 @@ class LinkedList:
                 current_node.next = new_node
                 new_node.next = new_pointer
             except (AttributeError, TypeError):
-                return print("Error. Index number not in range.")
+                return print("Error. Index not in range.")
         return self.head
 
     # Delete value anywhere in list
@@ -110,7 +110,7 @@ class LinkedList:
             current_node.next = current_node.next.next
             return self.head
         except (AttributeError, TypeError):
-            return print("Error. Index number not in range.")
+            return print("Error. Index not in range.")
 
     # Format list as a string
     def __str__(self):

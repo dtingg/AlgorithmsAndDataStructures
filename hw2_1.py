@@ -118,7 +118,7 @@ print(x.search("one"))
 print('Is "five" in the array?')
 print(x.search("five"))
 print('Is "None" in the array?')
-print(x.search("None"))
+print(x.search(None))
 
 # Test - length of array
 print("\nLength of array is: {}".format(len(x)))

@@ -12,6 +12,7 @@ Your stack should start empty and support the following methods:
 
 # Create a Stack using a Dynamic Array
 class Stack:
+
     def __init__(self, size=0):
 
         # Data
@@ -33,12 +34,21 @@ class Stack:
     # Add a value to the top of the stack
     def push(self, item):
 
+        # If stack is empty, create a new stack with size 1
+        if self.capacity == 0:
+            new_list = Stack(1)
+            new_list.data[0] = item
+            self.data = new_list.data
+            self.capacity = 1
+            self.actual = 1
+            self.top = 0
+
         # If not enough room, create a new array and copy items
-        if self.top + 1 == self.capacity:
-            new_list = Stack(self.capacity * 2)
+        elif self.top + 1 == self.capacity:
+            new_list = Stack(self.capacity*2)
             for i in range(self.actual):
                 new_list.data[i] = self.data[i]
-            new_list.data[self.top + 1] = item
+            new_list.data[self.top+1] = item
             self.capacity *= 2
             self.actual += 1
             self.data = new_list.data
@@ -52,27 +62,27 @@ class Stack:
     # Remove value from top of the Stack
     def pop(self):
         if self.top >= 0:
-            print(self.data[self.top])
+            pop_value = self.data[self.top]
             self.data[self.top] = None
             self.top -= 1
             self.actual -= 1
+            return pop_value
         else:
-            print("Stack is empty.")
+            return "Stack is empty."
 
     # Return most recently added item but do not remove item
     def peek(self):
         if self.top >= 0:
-            print(self.data[self.top])
+            return self.data[self.top]
         else:
-            print("Stack is empty.")
+            return "Stack is empty."
 
     # Check the length of the stack
     def size(self):
         return self.actual
 
-        # Check if stack is empty
-
-    def isEmpty(self):
+    # Check if stack is empty
+    def is_empty(self):
         if self.top < 0:
             return True
         else:
@@ -81,7 +91,7 @@ class Stack:
 
 # Test - create a Stack
 print("Create a stack.")
-s = Stack(2)
+s = Stack()
 print("Stack contains: {}".format(s))
 
 # Test - push an item
@@ -98,15 +108,15 @@ s.push("three")
 print("Stack contains: {}".format(s))
 
 print("\nPop the last value.")
-s.pop()
+print(s.pop())
 print("Stack contains: {}".format(s))
 
 print("\nPeek at the last value.")
-s.peek()
+print(s.peek())
 print("Stack contains: {}".format(s))
 
 print("\nWhat is the size of the stack?")
 print(s.size())
 
 print("\nIs the stack empty?")
-print(s.isEmpty())
+print(s.is_empty())

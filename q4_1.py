@@ -9,6 +9,7 @@ write a function that determines if the string is a palindrome.
 You can assume that there is no punctuation and all characters are lowercase.
 """
 
+
 def pal_check(string):
     string = string.replace(" ", "").lower()
 
@@ -16,6 +17,7 @@ def pal_check(string):
         return True
     else:
         return False
+
 
 print('Is "Dianna" a palindrone?')
 print(pal_check("Dianna"))

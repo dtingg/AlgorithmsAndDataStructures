@@ -3,14 +3,14 @@ Homework 3.4
 Use your stack implementation from problem 2 to implement problem 3.
 You function can take an input of either the string of parentheses,
 or a list of individual parentheses.
-
 A common problem for compilers and text editors is determining whether
 the parentheses in a string are balanced and properly nested.
 For example, the string ((())())() contains properly nested pairs of
 parentheses, which the strings )()( and ()) do not.
-
 Create an algorithm that returns true if a string contains properly
 nested and balanced parentheses, and false if otherwise.
+Extra: Identify the position of the first offending parenthesis
+if the string is not properly nested and balanced.
 """
 
 

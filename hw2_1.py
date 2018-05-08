@@ -1,9 +1,11 @@
 """
 Part 1 — Dynamic Arrays
 Using your language’s existing array structure, implement a dynamic array-based list.
-Python users: since Python doesn’t have the kind of array we want, copy/use this link for your array type.
+Python users: since Python doesn’t have the kind of array we want,
+copy/use this link for your array type.
 Submit file as HW2_1_Dianna_Tingg.py
 """
+
 
 # Create a Dyanmic Array Class
 class DynamicArray:
@@ -54,7 +56,15 @@ class DynamicArray:
 
     # Append value to the end of the list
     def append(self, value):
-        if self.actual + 1 <= self.capacity:
+        # If array is empty, create a new array with size 1
+        if self.capacity == 0:
+            new_list = DynamicArray(1)
+            new_list.data[0] = value
+            self.data = new_list.data
+            self.capacity = 1
+            self.actual = 1
+
+        elif self.actual + 1 <= self.capacity:
             self.set(self.actual, value)
             self.actual += 1
             return self.data
@@ -81,44 +91,38 @@ class DynamicArray:
         length = self.actual
         return length
 
-# Test - create an array
-x = DynamicArray(3)
+
+# Test - create an empty array
+x = DynamicArray()
 print("Array contains: {}".format(x))
 print("Type: {}\n".format(type(x)))
 
-# Test - set value at specific index
-x.set(0, "one")
-x.set(1, "two")
-x.set(2, "three")
-print('Set index 0 to "one", index 1 to "two", and index 2 to "three".')
+# Test - append value at end of list
+print('Add "one" to the end of the array.')
+x.append("one")
 print("Array contains: {}\n".format(x))
 
-# Test - try to set value outside of index
-print('Try to set index 3 to "test".')
-x.set(3, "test")
+print('Add "two" to the end of the array.')
+x.append("two")
+print("Array contains: {}\n".format(x))
 
-# Test - try to use a non-integer index
-print('\nTry to set index a to "try".')
-x.set("a", "try")
+print('Add "three" to the end of the array.')
+x.append("three")
+print("Array contains: {}\n".format(x))
+
+# Test - set value at specific index
+x.set(0, "zero")
+print('Set item at index 0 to "zero".')
+print("Array contains: {}".format(x))
 
 # Test - get value at a specific index
-print("\nValue at index 1 is: {}".format(x.get(1)))
-print("Value at index 4 is:")
-x.get(4)
-print("Value at index z is:")
-x.get("z")
-
-# Test - append value at end of list
-print('\nAdd "four" to the end of the array.')
-print("Array contains: {}\n".format(x.append("four")))
+print("\nValue at index 1 is: {}\n".format(x.get(1)))
 
 # Test - search for a value
 print('Is "one" in the array?')
 print(x.search("one"))
-print('Is "five" in the array?')
-print(x.search("five"))
-print('Is "None" in the array?')
-print(x.search(None))
+print('Is "two" in the array?')
+print(x.search("two"))
 
 # Test - length of array
-print("\nLength of array is: {}".format(len(x)))
+print("\nLength of array is: {}\n".format(len(x)))

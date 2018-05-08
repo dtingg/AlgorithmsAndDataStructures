@@ -8,6 +8,7 @@ You’ll probably want to write a small Node class similar to what we did in cla
 Submit file as HW2_2_Dianna_Tingg.py
 """
 
+
 # Create a node
 class Node:
     def __init__(self, data, next=None):
@@ -20,10 +21,11 @@ class Node:
         else:
             return self.data + str(self.next)
 
+
 # Create a linked list
 class LinkedList:
-    def __init__(self, head):
-        self.head = head
+    def __init__(self):
+        self.head = None
 
     # Get value at a specific index
     def get(self, index):
@@ -67,11 +69,15 @@ class LinkedList:
     def add_to_end(self, new_node):
         current_index = 0
         current_node = self.head
-        while current_node.next is not None:
-            current_index += 1
-            current_node = current_node.next
-        current_node.next = new_node
-        return self.head
+
+        if current_node is None:
+            self.head = Node(new_node)
+        else:
+            while current_node.next is not None:
+                current_index += 1
+                current_node = current_node.next
+            current_node.next = Node(new_node)
+            return self.head
 
     # Insert value anywhere in list
     def insert(self, new_node, index):
@@ -79,6 +85,7 @@ class LinkedList:
         current_node = self.head
 
         if index == 0:
+            new_node = Node(new_node)
             new_node.next = current_node
             self.head = new_node
         else:
@@ -87,6 +94,7 @@ class LinkedList:
                     current_index += 1
                     current_node = current_node.next
                 new_pointer = current_node.next
+                new_node = Node(new_node)
                 current_node.next = new_node
                 new_node.next = new_pointer
             except (AttributeError, TypeError):
@@ -116,41 +124,47 @@ class LinkedList:
     def __str__(self):
         current_node = self.head
         llstring = ""
-        while current_node is not None:
-            llstring += str(current_node.data)
-            llstring += "-->"
-            current_node = current_node.next
-        llstring += "END"
-        return llstring
+        if current_node is None:
+            return "Empty"
+        else:
+            while current_node is not None:
+                llstring += str(current_node.data)
+                llstring += "-->"
+                current_node = current_node.next
+            llstring += "END"
+            return llstring
 
-# Test - create nodes and a linked list
-node_a = Node("A")
-node_a.next = Node("B")
-node_a.next.next = Node("C")
-ll = LinkedList(node_a)
+
+# Test - create an empty linked list
+ll = LinkedList()
 print("Linked list contains: {}".format(ll))
 print("Type: {} \n".format(type(ll)))
 
+# Add the letter "A" to the list.
+print('Add the letter "A" to the list.')
+ll.add_to_end("A")
+print(ll)
+
+# Add the letter "B" to the list.
+print('Add the letter "B" to the list.')
+ll.add_to_end("B")
+print(ll)
+
 # Test - get a value at a specific index
-print("Item at position 1 is: {}\n".format(ll.get(1)))
+print("\nItem at position 1 is: {}\n".format(ll.get(1)))
 
 # Test - search for a value
-print("Is C in the list?: {}".format(ll.search("C")))
+print("Is A in the list?: {}".format(ll.search("A")))
 print("Is D in the list?: {}\n".format(ll.search("D")))
 
 # Test - change value at a specific location
-print("Change the value at index 2 to D.")
-ll.change("D", 2)
-print("New linked list contains: {}\n".format(ll))
-
-# Test - add item at the end of list
-print("Add the letter E.")
-ll.add_to_end(Node("E"))
+print("Change the value at index 1 to D.")
+ll.change("D", 1)
 print("New linked list contains: {}\n".format(ll))
 
 # Test - insert item at a specific location
-print("Add the letter C to index 2")
-ll.insert(Node("C"), 2)
+print("Add the letter C to index 1")
+ll.insert("C", 1)
 print("New linked list contains: {}\n".format(ll))
 
 # Test - delete item at a specific location

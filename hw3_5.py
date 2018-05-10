@@ -48,8 +48,9 @@ class Queue:
         if current_node is None:
             return "Queue is empty."
         else:
+            value = self.head.data
             self.head = current_node.next
-        return self.head
+        return value
 
         # Peek - return the item at the front, but do not remove it
 
@@ -110,7 +111,7 @@ q.enqueue("C")
 print("Queue contains: {}".format(q))
 
 print("\nRemove item from the front of the queue.")
-q.dequeue()
+print(q.dequeue())
 print("Queue contains: {}".format(q))
 
 print("\nPeek at the item at the front of the queue.")

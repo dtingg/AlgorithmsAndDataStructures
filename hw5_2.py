@@ -9,19 +9,19 @@ Hint: you can use the function from the previous question
 """
 
 
-# Use recursion to see if a string is a palindrone
-def is_palindrone(string):
+# Use recursion to see if a string is a palindrome
+def is_palindrome(string):
     if len(string) < 2:
         return True
     elif string[0] != string[-1]:
         return False
     else:
-        is_palindrone(string[1:-1])
+        is_palindrome(string[1:-1])
     return True
 
 
-print('Is "dianna" a palindrone?')
-print(is_palindrone("dianna"))
+print('Is "dianna" a palindrome?')
+print(is_palindrome("dianna"))
 
-print('\nIs "racecar" a palindrone?')
-print(is_palindrone("racecar"))
+print('\nIs "racecar" a palindrome?')
+print(is_palindrome("racecar"))

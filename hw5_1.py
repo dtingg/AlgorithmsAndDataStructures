@@ -24,6 +24,7 @@ def is_palindrone(chars):
         is_palindrone(chars[1:-1])
     return True
 
+
 print('Is "dianna" a palindrone?')
 dianna = ["d", "i", "a", "n", "n", "a"]
 print(is_palindrone(dianna))

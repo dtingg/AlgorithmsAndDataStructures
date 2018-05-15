@@ -25,10 +25,10 @@ def is_palindrome(chars):
     return True
 
 
-print('Is "dianna" a palindrone?')
+print('Is "dianna" a palindrome?')
 dianna = ["d", "i", "a", "n", "n", "a"]
 print(is_palindrome(dianna))
 
-print('\nIs "racecar" a palindrone?')
+print('\nIs "racecar" a palindrome?')
 racecar = ["r", "a", "c", "e", "c", "a", "r"]
 print(is_palindrome(racecar))

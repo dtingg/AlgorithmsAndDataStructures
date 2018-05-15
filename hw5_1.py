@@ -14,21 +14,21 @@ should_be_true = is_palindrome(racecar)
 """
 
 
-# Use recursion to see if a list of characters is a palindrone
-def is_palindrone(chars):
+# Use recursion to see if a list of characters is a palindrome
+def is_palindrome(chars):
     if len(chars) < 2:
         return True
     elif chars[0] != chars[-1]:
         return False
     else:
-        is_palindrone(chars[1:-1])
+        is_palindrome(chars[1:-1])
     return True
 
 
 print('Is "dianna" a palindrone?')
 dianna = ["d", "i", "a", "n", "n", "a"]
-print(is_palindrone(dianna))
+print(is_palindrome(dianna))
 
 print('\nIs "racecar" a palindrone?')
 racecar = ["r", "a", "c", "e", "c", "a", "r"]
-print(is_palindrone(racecar))
+print(is_palindrome(racecar))

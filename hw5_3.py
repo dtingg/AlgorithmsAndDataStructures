@@ -11,7 +11,7 @@ should_be_fifteen = sum(nested_nums)
 def sum_nested(nested_list):
     if not nested_list:
         return 0
-    elif not isinstance(nested_list, (list)):
+    elif not isinstance(nested_list, list):
         return nested_list
     else:
         return sum_nested(nested_list[0]) + sum_nested(nested_list[1:])

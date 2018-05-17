@@ -14,7 +14,7 @@ def iterer(n):
 
 
 def recurer(n):
-    if not n > 1:
+    if n <= 1:
         return 1
     else:
         return 1 + recurer(n/2)

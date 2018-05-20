@@ -52,8 +52,7 @@ class Queue:
             self.head = current_node.next
         return value
 
-        # Peek - return the item at the front, but do not remove it
-
+    # Peek - return the item at the front, but do not remove it
     def peek(self):
         current_node = self.head
         return current_node.data

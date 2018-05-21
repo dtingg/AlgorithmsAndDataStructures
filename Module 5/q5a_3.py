@@ -1,5 +1,5 @@
 """
-Quiz 5
+Quiz 5A
 Question 3
 Given an integer, we need to find the super
 digit of the integer. We define super digit
